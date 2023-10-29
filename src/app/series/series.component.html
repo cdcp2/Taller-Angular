@@ -1,0 +1,33 @@
+<nav class="navbar" style="background-color: #26a2b6;">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color:black;">
+          <img src="https://www.creativefabrica.com/wp-content/uploads/2019/03/Monogram-TV-Logo-Design-by-Greenlines-Studios-580x386.jpg" alt="" width="30px" class="d-inline-block ">
+          TV Series
+      </a>
+  </div>
+</nav>
+<div class="container-fluid" id ="tabla">
+  <div class="col-4">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><b>#</b></th>
+          <th><b>Name</b></th>
+          <th><b>Channel</b></th>
+          <th><b>Seasons</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ser of series">
+          <td><b>{{ser.id}}</b></td>
+          <td>
+            <dd><a href={{ser.linkWebPage}}>{{ser.name}}</a></dd>
+          </td>
+          <td>{{ser.channel}}</td>
+          <td>{{ser.seasons}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Seasons Average: {{seasonsAverage}}</p>
+  </div>
+</div>
