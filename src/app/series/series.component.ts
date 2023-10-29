@@ -9,22 +9,24 @@ import { SerieService } from './serie.service';
 })
 export class SeriesComponent implements OnInit {
 
-  constructor(private serieService: SerieService) { }
   series: Array<Serie> = [];
   seasonsAverage = 0;
 
+  constructor(private serieService: SerieService) { }
+
   getSeries() {
     this.serieService.getSeries().subscribe(series => {
-      series.forEach(serie => {
-        this.seasonsAverage += serie.seasons
-    })
-    this.seasonsAverage = this.seasonsAverage / series.length
-    this.series = series;
-  });
+      this.series = series;
+      this.calculateSeasonsAverage();
+    });
+  }
+
+  calculateSeasonsAverage() {
+    const totalSeasons = this.series.reduce((acc, serie) => acc + serie.seasons, 0);
+    this.seasonsAverage = totalSeasons / this.series.length;
   }
 
   ngOnInit() {
     this.getSeries();
   }
-
 }

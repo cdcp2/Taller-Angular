@@ -1,5 +1,6 @@
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
+// Imports related to testing setup
 import 'zone.js/testing';
 import { getTestBed } from '@angular/core/testing';
 import {
@@ -7,6 +8,7 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
+// Declare 'require' for Webpack's special require function.
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
     <T>(id: string): T;
@@ -14,13 +16,12 @@ declare const require: {
   };
 };
 
-// First, initialize the Angular testing environment.
+// Initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting(),
 );
 
-// Then we find all the tests.
+// Discover and load all the test spec files.
 const context = require.context('./', true, /\.spec\.ts$/);
-// And load the modules.
 context.keys().map(context);
