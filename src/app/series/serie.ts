@@ -1,15 +1,21 @@
-
-//create class serie
 export class Serie {
-    id: number;
-    name: string;
-    channel: string;
-    seasons: number;
-    linkWebPage: string;
-    linkImage: string;
-    description: string;
+    readonly id: number;
+    readonly name: string;
+    readonly channel: string;
+    readonly seasons: number;
+    readonly linkWebPage: string;
+    readonly linkImage: string;
+    readonly description: string;
 
-    constructor(id: number, name: string, seasons: number, channel: string, description: string, linkWebPage: string, linkImage: string) {
+    constructor(
+        id: number, 
+        name: string, 
+        seasons: number, 
+        channel: string, 
+        description: string, 
+        linkWebPage: string, 
+        linkImage: string
+    ) {
         this.id = id;
         this.name = name;
         this.seasons = seasons;
@@ -19,25 +25,31 @@ export class Serie {
         this.linkImage = linkImage;
     }
 
-    getid() {
+    get getId() {
         return this.id;
     }
-    getName() {
+
+    get getName() {
         return this.name;
     }
-    getSeasons() {
+
+    get getSeasons() {
         return this.seasons;
     }
-    getchannel() {
+
+    get getChannel() {
         return this.channel;
     }
-    getDescription() {
+
+    get getDescription() {
         return this.description;
     }
-    getLinkWebPage() {
+
+    get getLinkWebPage() {
         return this.linkWebPage;
     }
-    getLinkImage() {
+
+    get getLinkImage() {
         return this.linkImage;
     }
 }
